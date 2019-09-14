@@ -1,0 +1,223 @@
+$carousel_height: 250px;
+
+/* ======== [ Carusel ] ======== */
+.carousel-item{
+    height: $carousel_height;
+    a {
+        display: block;
+        height: $carousel_height;
+        div {
+            height: 100%;
+            background-position: top;
+            background-size: cover;
+        }
+    }
+    @include tablet {
+        height: $carousel_height + 100px;        
+        a {
+            height: $carousel_height + 100px;        
+        }
+    }
+    @include desktop {
+        height: $carousel_height + 300px;
+        a {
+           height: $carousel_height + 300px;        
+        }
+    }
+} 
+.carousel-item img{
+    height: $carousel_height;
+}
+
+
+/* ======== [ Prices ] ======== */
+.prices {
+    display: grid;
+    grid-template: auto / repeat(auto-fill, minmax(170px, 6fr));
+    grid-row-gap: 1rem;
+}
+.ec-price {
+    padding: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.09);    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1rem;
+    .price {
+        color: darken($primary, 10);
+        font-weight: 500; 
+        font-size: 1.23em;           
+        margin-bottom: 1rem;
+    }
+    .diamond {
+        font-size: 1.1em;
+        margin-top: 10px;
+        font-weight: 500;
+        small {
+            color: rgba($secondary, .8);
+        }
+    }
+    a {
+        display: block;
+        width: 90%;
+    }    
+    &:nth-last-child {
+        margin: 0;
+    }
+}
+.img-price {
+  width: 60%;
+}
+.ec-price-table { 
+    grid-column: 1 / 2;
+    grid-row: 1/ 2;
+    position: relative;   
+    padding: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.09);  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include desktop {
+        grid-column: initial;
+        grid-row: initial;
+    }
+    a {
+        position: absolute;
+        bottom: 1rem;
+    }
+    .ec-tb-content {
+        width: 100%;
+        max-height: 160px;
+        min-height: 160px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        
+    }
+    table {
+        width: 100%;
+        font-size: .9em;
+        thead tr {
+            
+            .price-tb-title {
+                text-align: center;
+                padding-top: .5em;
+                font-size: 1.2em;
+                font-weight: 500;
+                color: $secondary;
+            }
+        }
+            
+        tbody tr td {
+            &:last-child {
+                text-align: right;
+            }
+        }
+    }
+}
+
+
+/* ======== [ Recargas ] ======== */
+.reloads {
+    display: grid;
+    grid-template: auto / repeat(auto-fill, minmax(225px, 4fr));
+    grid-gap: 1rem;
+}
+.reload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.09);    
+    .img-reload {
+        height: 180px;
+        background-size: cover;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        background-position: top center;        
+        width: 100%;
+        a {
+            display: block;
+            width: 100%;    
+            height: 100%;
+        }
+    }
+    .user-reload {
+        background: white;
+        padding: 1rem;
+        margin-top: -1rem;
+        display: flex;
+        align-items: center;
+        width: 80%;
+        @include tablet {        
+            width: 90%;
+        }
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);    
+        >div {
+            display: flex;
+            flex-direction: column;
+            margin-left: .5rem;
+            overflow-x: auto;
+            line-height: 20px;
+            color: $primary;
+            font-weight: 500;
+            span.point-content {
+                font-weight: 500;
+                color: darken($terciario, 20);
+            }
+        }
+        img.avatar {
+            width: 50px;
+            border-radius: 50%;
+            border: 1.5px solid $primary;
+        }
+        img.point {
+            width: 16px;
+        }
+    }    
+    .info-reload {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;        
+        padding: 1rem 2rem;
+        @include tablet {
+            padding: 1rem;
+        }
+        line-height: 5px;
+        b {
+            font-weight: 500;
+            color: $secondary;
+        }
+    }
+}
+
+/* ======== [ Mas Puntuados ] ======== */
+.more-points {
+    display: flex;
+    >div {
+        width: 50%;        
+    }
+    .info {
+        text-align: center;
+    }
+    .top {
+        display: flex;
+        padding: 0 2rem;
+    }
+}
+
+.top-item {
+    img.avatar {
+        width: 70px;
+        border-radius: 50%;
+    }
+    .level-up {
+        border: solid;
+        height: 200px;
+    }
+}

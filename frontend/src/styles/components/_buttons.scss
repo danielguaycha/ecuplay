@@ -1,0 +1,68 @@
+.ec-btn {
+    background: white;
+    padding: .4rem 1rem;
+    color: darken($secondary, 5);
+    font-weight: 500;
+    transition: all .2s ease-in;
+    border-radius: 3px;
+    text-align: center;
+    border: none;
+    &:hover, &:active, &:focus {
+        text-decoration: none;
+        cursor: pointer;
+        color: darken($primary, 10);
+        outline: none;
+    }
+    &.primary {
+        background: darken($primary, 5) !important;
+        color: rgba(white, .95) !important;
+        &:hover {
+            background: darken($primary, 7) !important;
+            color: white !important;            
+        }
+    }
+    &.ec-btn-fb {
+        background: #3b5999 !important;
+        color: rgba(white, .9);
+        i {
+            margin-right: 5px;
+        }
+        &:hover {
+            background: darken(#3b5999, 10) !important;
+            color: white !important;
+        }        
+    }
+}
+
+.ec-btn-rounded {
+    border: 1.44px solid rgba($secondary, .6);
+    color: rgba($secondary, .6);
+    padding: .4rem 1rem;
+    font-weight: 500;
+    border-radius: 25px;
+    margin: 0 auto;
+    text-align: center;
+    &.terciario {
+        color: white !important;
+        border: darken($terciario, 20) !important;
+        background: darken($terciario, 20) !important;        
+        transition: background .1s ease-in;
+        &:hover {      
+            @include degradado($primary, darken($primary, 15))            
+        }
+    }
+    &.primary {
+        color: white !important;
+        border: darken($primary, 0) !important;
+        background: darken($primary, 0) !important;        
+        transition: background .1s ease-in;
+        &:hover {      
+            @include degradado($terciario, darken($terciario, 20))            
+        }
+    }
+    &:hover, &:active, &:focus {
+        text-decoration: none;
+        color: darken($terciario, 20);
+        border-color: darken($terciario, 20);
+    }
+}

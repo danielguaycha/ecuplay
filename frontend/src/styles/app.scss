@@ -1,2 +1,11 @@
 @import 'variables';
 @import 'mixins';
+
+// custom components
+@import 'components/buttons';
+
+@import 'main';
+
+// 
+@import 'partials/header';
+@import 'partials/home';

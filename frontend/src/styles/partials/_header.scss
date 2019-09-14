@@ -1,0 +1,191 @@
+$nav-height: 50px;
+.ec-header {    
+    
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    @include desktop {
+        box-shadow: 0 0.25rem 0.125rem 0 rgba(0,0,0,0.05);
+        padding: 0 1rem;
+        flex-direction: row;
+        background: white;
+    }
+}
+
+// Nav 
+.ec-nav {    
+    background: #fefefe;    
+    display: flex;    
+    align-items: flex-end;
+    flex-direction: column;    
+    width: 100%;
+    z-index: 9999;
+    @include desktop {
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .ec-header-logo {
+        padding: 0rem .8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: white;
+        box-shadow: 0 0.25rem 0.125rem 0 rgba(0,0,0,0.05);
+        z-index: 9999;
+        @include desktop {
+            padding: 0 1rem;
+            width: initial;
+            box-shadow: none;
+            .btn-menu {
+                display: none;
+            }
+        }
+        .btn-menu {
+            font-size: 1.8em;
+            padding-right: 0;
+        }
+    }
+    // logo
+    .logo {
+        margin-right: 1rem;    
+        text-decoration: none;        
+        &:hover, &:active {
+            outline: none;
+        }       
+        &:hover span, &:focus span {
+            color: $primary;
+        } 
+        img {
+            height: $nav-height - 10px;
+        }
+        span {
+            font-weight: bold;
+            color: #000;
+            font-size: 1.15em;
+            font-variant: petite-caps;
+        }
+    }
+}
+
+
+.ec-menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;    
+    background: $secondary;
+    padding: 1rem;
+    position: fixed;
+    top: 55px;
+    right: -65%;
+    max-height: calc(100% - 50px);
+    overflow-y: auto;
+    height: 100%;
+    z-index: 9990;
+    width: 65%;
+    transition: all .1s ease-in-out;
+   
+    &.open {
+        right: 0 !important;
+    }
+    @include tablet {
+        width: 45%;
+    }
+    @include desktop{
+        padding: 0;
+        width: initial;
+        position: initial;
+        background: transparent;
+        max-height: initial;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+}
+
+.ec-nav-menu-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    order: 2;
+    a {
+        width: 100%;
+    }
+}
+
+// Main menu
+.ec-nav-menu {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;    
+    margin: 0;
+    align-items: flex-end;
+    height: 100%;
+    margin-top: 1rem;
+    @include desktop {
+        align-items: center;    
+        flex-direction: row;
+        order: 1;
+        margin-top: 0;
+    }
+    // item menu
+    li {
+        height: $nav-height;
+        display: flex;
+        width: 100%;
+        margin-bottom: 1rem;        
+        a {
+            font-weight: 500;
+            margin: 0 .4rem;         
+            padding: .7rem;
+            width: 100%;
+            text-decoration: none;
+            color: rgba(white, .8);
+            transition: all 100ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            &:hover, &:active, &:focus {
+                outline: none;                
+                border-bottom: 2.5px solid $primary;
+            }
+        }
+        @include desktop {
+            width: initial;
+            margin-bottom: 0;
+            a {
+                width: initial;
+                color: $secondary;
+                &:hover{
+                    color: darken($secondary, 10);
+                }
+            }
+        }
+    }
+}
+
+// overlay
+.ec-nav-overlay {
+    background: rgba(black, .65);
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    transition: all .05s ease-in-out;
+    &.open {
+        display: block !important;
+    }
+    @include desktop {
+        display: none !important;
+        &.open {
+            display: none !important;
+        }
+    }
+}

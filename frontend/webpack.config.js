@@ -1,12 +1,17 @@
 const path = require('path');
 const HtmlWebpack = require('html-webpack-plugin')
 const miniCss = require('mini-css-extract-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/app.js',
+    entry: [
+        './src/js/home.js',
+        './src/app.js',
+    ],
     output: {
         path: path.join(__dirname , 'dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath : ""
     },
     module: {
         rules: [
@@ -17,13 +22,18 @@ module.exports = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    miniCss.loader,
-                    'css-loader',
-                    'sass-loader'
+                    {
+                        loader: miniCss.loader,
+                        options: {
+                            publicPath: '../'
+                        }
+                    },                
+                    'css-loader',                    
+                    'sass-loader'  
                 ]
             }, 
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(png|jpe?g|gif|svg)$/i,
                 use: [
                     {
                         loader: 'file-loader',
@@ -34,6 +44,19 @@ module.exports = {
                         }
                     }                    
                 ]                
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                      name: '[name].[ext]',
+                      outputPath: 'static/webfonts/',
+                      useRelativePath: true             
+                    }
+                  }
+                ]
             },
             {
                 loader: 'image-webpack-loader',
@@ -62,11 +85,15 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.ProvidePlugin({
+            jQuery: 'jquery',
+            $: 'jquery'
+        }),
         new HtmlWebpack({
-            template: './src/index.hbs'
+            template: './src/index.hbs',          
         }),
         new miniCss({
-            filename: 'css/app.css'
+            filename: 'css/app.css'            
         })
     ]
 }

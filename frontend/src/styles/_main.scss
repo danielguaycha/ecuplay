@@ -1,0 +1,30 @@
+body {
+    background: #efefef;
+}
+
+.container {   
+    padding-bottom: 1rem;    
+    section {
+        padding: 1rem 0 2rem 0;
+        h3 {
+            text-align: center;
+            color: rgba($secondary, .8);
+            font-weight: 400;
+            margin: 1rem 0;
+        }
+        p {
+            text-align: center;
+        }          
+    }
+}
+
+.container-fluid {
+    margin-top: 50px;
+}
+
+.container-fluid {
+    padding: 0 !important;
+}
+.container-dark {
+    background: #F2F2F2d1;
+}
